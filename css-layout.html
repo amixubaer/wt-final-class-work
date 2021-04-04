@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>css-layout</title>
+</head>
+<body>
+
+	<div class="layout">
+	  <header>
+	  	<p>Prothom Alo</p>
+
+	  </header>
+
+	  <nav>
+	  	<p>Side Bar</p>
+	  </nav>
+
+	  <content>
+	  	<img src="pikachu.png" alt="pikachu">
+	  	<br>
+		<P><b>A local biral found yesterday which looks like something suspicious. People are saying that it's pikachu a fictional character.</b></P>
+		<br>
+	  </content>
+
+	  <footer>
+	  	
+	  	<p><b> &copy; All Rights Reserved</b></p>
+
+	  </footer>
+
+	</div>
+
+	<style>
+		
+		.layout{
+			
+			height: 100vh;
+			display: grid;
+			grid-template-rows: 25% 50% 25%;
+			grid-template-columns: 20% 80%;
+			grid-gap: 10px;
+			grid-template-areas: 
+			"header header"
+			"nav content"
+			"nav footer";
+			
+
+		}
+
+		img{
+			margin-top: 25px;
+			margin-left: 25px;
+			width: 25%;
+			float: left;
+		}
+
+		p{
+			text-align: center;
+			font-weight: bold;
+			font-size: 30px;
+			vertical-align: middle;
+		}
+
+
+
+		header{
+		    grid-area: header;
+		    background-color: red;
+		}
+		
+
+		nav{
+		    grid-area: nav;
+		    background-color: blue;
+		}
+		
+
+		content{
+		    grid-area: content;
+		    background-color: yellow;
+		}
+		
+
+		footer{
+		    grid-area: footer;
+		    background-color: green;
+		}
+
+
+	</style>
+
+</body>
+</html>
