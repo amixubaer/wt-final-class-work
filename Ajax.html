@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax</title>
+</head>
+<body>
+
+	<h1>Ajax</h1>
+		
+	<label for="username">Username:</label>
+	<input type="text" name="username" id="username">
+
+	<br><br>
+
+	<label for="password">Password:</label>
+	<input type="password" name="password" id="password">
+
+	<br><br>
+
+	<button id="submit" onclick="submit()">Submit</button>
+
+	<p id="p1"></p>
+
+	<br>
+	<hr>
+	<br>
+
+	<h1>Seach By Id </h1>
+
+	<label for="searchKey">Id:</label>
+	<input type="number" name="searchKey" id="searchKey">
+
+	<button id="search" onclick="search()">Search</button>
+
+	<p id="p2"></p>
+
+	<script>
+		
+		function submit() {
+
+			var username = document.getElementById("username").value;
+			var password = document.getElementById("password").value;
+
+			if(username == "" || password == "") {
+				document.getElementById("p1").innerHTML = "Fill up the form properly";
+				document.getElementById("p1").style.color = "red";
+			}
+
+			else {
+
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+					if(this.readyState == 4 && this.status == 200) {
+						document.getElementById("p1").innerHTML = xhttp.responseText;
+						document.getElementById("p1").style.color = "green";
+					}
+				}
+
+				xhttp.open("POST", "AjaxAction.php", true);
+				xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				xhttp.send("username="+username+"&password="+password);
+			}
+		}
+
+		function search() {
+			var searchKey = document.getElementById("searchKey").value;
+
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if(this.readyState == 4 && this.status == 200) {
+					document.getElementById("p2").innerHTML = xhttp.responseText;
+				}
+			}
+
+			xhttp.open("GET", "AjaxAction.php?searchKey=" + searchKey, true);
+			xhttp.send();
+		}
+
+	</script>
+
+</body>
+</html>
