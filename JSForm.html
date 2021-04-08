@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Form</title>
+</head>
+<body>
+
+	<h1>JS Form</h1>
+
+	<form name="jsForm" action="JSFormAction.php" onsubmit="return validate()" method="POST">
+		
+		<label for="username">Username:</label>
+		<input type="text" name="username" id="username">
+
+		<br><br>
+
+		<label for="password">Password:</label>
+		<input type="password" name="password" id="password">
+
+		<br><br>
+
+		<input type="submit" name="submit" value="Submit">
+
+	</form>
+
+	<p id="errorMsg"></p>
+
+	<script>
+			function validate() {
+				var isValid = false;
+				var username = document.forms["jsForm"]["username"].value;
+				var password = document.forms["jsForm"]["password"].value;
+
+				if(username == "" || password == "") {
+					document.getElementById("errorMsg").innerHTML = "<b>Please fill up the form properly.</b>";
+					document.getElementById("errorMsg").style.color = "red";
+				}
+				else {
+					isValid = true;
+				}
+
+				return isValid;
+			}
+		</script>
+
+</body>
+</html>
