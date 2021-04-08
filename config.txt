@@ -1,0 +1,3 @@
+Database: wta
+User: wta_user_1
+password: 123
