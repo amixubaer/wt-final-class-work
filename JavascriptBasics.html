@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript Basics</title>
+</head>
+<body>
+
+	<h1>Javascript Basics</h1>
+
+	<p id="p1">abc</p>
+
+	<br><br>
+
+	<button type="button" onclick="changeText()">Change Text</button>
+
+	<br><br>
+		
+	<button type="button" onclick="changeColor()">Change Color</button>
+
+	<br><br>
+
+	<p id="p2">p2</p>
+
+	<br><br>
+
+	<p id="p3">p3</p>
+
+	<br><br>
+
+	<p id="p4">p4</p>
+
+	<script>
+		function changeText() {
+			var x = document.getElementById('p1');
+			x.innerHTML = "<b>Hello JS!</b>";
+		}
+
+		function changeColor() {
+			var x = document.getElementById('p1');
+			x.style.color = "red";
+		}
+
+		function add(a, b) {
+			return a + b;
+		}
+
+		var x1 = add;
+		var x2 = add(10, 20);
+		var x3 = add();
+
+		document.getElementById('p2').innerHTML = x1;
+		document.getElementById('p3').innerHTML = x2;
+		document.getElementById('p4').innerHTML = x3;
+
+		console.log(x1);
+		console.log(x2);
+		console.log(x3);
+
+		var Person = {
+			id: 1,
+			name: 'abc',
+			age: 50
+		}
+
+		console.log(Person.id);
+		console.log(Person.name);
+		console.log(Person.age);
+	</script>
+
+</body>
+</html>
